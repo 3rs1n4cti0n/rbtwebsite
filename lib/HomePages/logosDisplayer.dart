@@ -12,7 +12,7 @@ class _LogosDisplayerState extends State<LogosDisplayer> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey[200]!.withOpacity(0.7),
-      height: MediaQuery.of(context).size.height / 1.5,
+      height: MediaQuery.of(context).size.height / 1.25,
       width: MediaQuery.of(context).size.width / 1.25,
       child: Column(
         children: [
@@ -28,16 +28,17 @@ class _LogosDisplayerState extends State<LogosDisplayer> {
               ),
             ),
           ),
-          Flexible(
+          Expanded(
             child: Padding(
               padding: const EdgeInsets.only(
                   top: 50, bottom: 50, left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Flexible(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Flexible(
@@ -56,6 +57,10 @@ class _LogosDisplayerState extends State<LogosDisplayer> {
                             ),
                           ),
                         ),
+                        const Flexible(
+                            child: SizedBox(
+                          height: 10,
+                        )),
                         Container(
                           constraints: const BoxConstraints(maxWidth: 500),
                           child: const Text(
@@ -69,12 +74,9 @@ class _LogosDisplayerState extends State<LogosDisplayer> {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    width: 20,
-                  ),
                   Flexible(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Flexible(
@@ -92,6 +94,10 @@ class _LogosDisplayerState extends State<LogosDisplayer> {
                             ),
                           ),
                         ),
+                        const Flexible(
+                            child: SizedBox(
+                          height: 10,
+                        )),
                         Container(
                           constraints: const BoxConstraints(maxWidth: 500),
                           child: const Text(

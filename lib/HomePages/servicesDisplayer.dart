@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:show_up_animation/show_up_animation.dart';
 
 class ServicesDisplayer extends StatefulWidget {
   const ServicesDisplayer({Key? key}) : super(key: key);
@@ -22,8 +23,8 @@ class _ServicesDisplayerState extends State<ServicesDisplayer> {
 
   Shader getGradient() {
     return gradient = LinearGradient(
-          colors: [Colors.cyan[900]!, Colors.orange[900]!, Colors.cyan[900]!])
-      .createShader(const Rect.fromLTWH(0.0, 0.0, 400.0, 70.0));
+            colors: [Colors.cyan[900]!,Colors.orange[900]!, Colors.cyan[900]!])
+        .createShader(const Rect.fromLTWH(0.0, 0.0, 700.0, 70.0));
   }
 
   void initServices() {
@@ -45,11 +46,21 @@ class _ServicesDisplayerState extends State<ServicesDisplayer> {
         "Logos", () => "Logo images that can be used for your applications.");
   }
 
+  double calcHeight() {
+    if (MediaQuery.of(context).size.width >= 600) {
+      return MediaQuery.of(context).size.height;
+    }
+    if (MediaQuery.of(context).size.height < 900) {
+      return MediaQuery.of(context).size.height * 1.5;
+    }
+    return MediaQuery.of(context).size.height * 1.25;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey[200]?.withOpacity(0.7),
-      height: MediaQuery.of(context).size.height,
+      height: calcHeight(),
       width: MediaQuery.of(context).size.width / 1.25,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -71,11 +82,14 @@ class _ServicesDisplayerState extends State<ServicesDisplayer> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   if (MediaQuery.of(context).size.width > 750)
-                    Image(
-                      height: MediaQuery.of(context).size.height / 1.1,
-                      fit: BoxFit.contain,
-                      image: const AssetImage(
-                          '../Assets/Backgrounds_Phone/background_7.png'),
+                    ShowUpAnimation(
+                      direction: Direction.horizontal,
+                      child: Image(
+                        height: MediaQuery.of(context).size.height / 1.1,
+                        fit: BoxFit.contain,
+                        image: const AssetImage(
+                            '../Assets/Backgrounds_Phone/background_7.png'),
+                      ),
                     ),
                   const SizedBox(
                     width: 20,
@@ -85,43 +99,53 @@ class _ServicesDisplayerState extends State<ServicesDisplayer> {
                           initialItemCount: servicesMap.length,
                           controller: listAnimationController,
                           itemBuilder: (context, index, animation) {
-                            return Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    servicesMap.keys.elementAt(index),
-                                    style: TextStyle(
-                                        fontSize: 28,
-                                        decoration: TextDecoration.none,
-                                        foreground: Paint()..shader = gradient),
+                            return ShowUpAnimation(
+                              delayStart:
+                                  Duration(milliseconds: 125 * (index + 1)),
+                              animationDuration: const Duration(seconds: 2),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      servicesMap.keys.elementAt(index),
+                                      style: TextStyle(
+                                          fontSize: 28,
+                                          decoration: TextDecoration.none,
+                                          foreground: Paint()
+                                            ..shader = gradient),
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width / 2.5,
-                                  child: Text(
-                                    servicesMap.values.elementAt(index),
-                                    style: const TextStyle(
-                                        color: Colors.black87,
-                                        fontSize: 20,
-                                        decoration: TextDecoration.none),
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width / 2.5,
+                                    child: Text(
+                                      servicesMap.values.elementAt(index),
+                                      style: const TextStyle(
+                                          color: Colors.black87,
+                                          fontSize: 20,
+                                          decoration: TextDecoration.none),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             );
                           })),
                   const SizedBox(
                     width: 20,
                   ),
                   if (MediaQuery.of(context).size.width > 1280)
-                    Image(
-                      height: MediaQuery.of(context).size.height / 1.1,
-                      fit: BoxFit.contain,
-                      image: const AssetImage(
-                          '../Assets/Backgrounds_Phone/background_8.png'),
+                    ShowUpAnimation(
+                      direction: Direction.horizontal,
+                      child: Image(
+                        height: MediaQuery.of(context).size.height / 1.1,
+                        fit: BoxFit.contain,
+                        image: const AssetImage(
+                            '../Assets/Backgrounds_Phone/background_8.png'),
+                      ),
                     ),
                 ],
               ),
