@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:rbtwebsite/Utilities/animatedTechs.dart';
