@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ShowUpAnimation(child: const ServicesDisplayer()),
                       ImageViewer(currentSize: currentSize),
                       const LogosDisplayer(),
-                      ServicesWithAnimation(),
+                      const ServicesWithAnimation(),
                     ],
                   )),
             ),

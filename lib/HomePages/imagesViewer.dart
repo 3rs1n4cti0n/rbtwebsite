@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ImageViewer extends StatefulWidget {
-  late final Size currentSize;
-  late final double maxHeight;
-  late final double maxWidth;
+  final Size currentSize;
+  final double maxHeight;
+  final double maxWidth;
 
-  ImageViewer({
+  const ImageViewer({
     Key? key,
     required this.currentSize,
     this.maxHeight = 500.0,

@@ -86,7 +86,7 @@ class _ServicesDisplayerState extends State<ServicesDisplayer> {
                       direction: Direction.horizontal,
                       child: Image(
                         height: MediaQuery.of(context).size.height / 1.1,
-                        fit: BoxFit.contain,
+                        fit: BoxFit.scaleDown,
                         image: const AssetImage(
                             '../Assets/Backgrounds_Phone/background_7.png'),
                       ),
