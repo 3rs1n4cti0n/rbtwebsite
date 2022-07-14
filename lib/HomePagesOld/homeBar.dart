@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:rbtwebsite/Utilities/links.dart';
+import 'package:rbtwebsite/UtilitiesOld/links.dart';
 
 class HomePageBar extends StatefulWidget {
   const HomePageBar({Key? key}) : super(key: key);
@@ -13,6 +13,8 @@ class HomePageBar extends StatefulWidget {
 class _HomePageBarState extends State<HomePageBar> {
   @override
   Widget build(BuildContext context) {
+    const biography = "I was born in Greece and currently studying in Eskişehir, Turkey. I'm majoring in Computer Engineering and love designing and drawing. I'm passionate about coding and love learning new things. I have a strong and quick imagination that helps me build UI, database and designs in my head!";
+    
     return Container(
       color: Colors.blueGrey[900],
       height: 300,
@@ -62,7 +64,7 @@ class _HomePageBarState extends State<HomePageBar> {
                         Container(
                           constraints: const BoxConstraints(maxWidth: 500),
                           child: const Text(
-                            "I was born in Greece and currently studying in Eskişehir, Turkey. I'm majoring in Computer Engineering and love designing and drawing. I'm passionate about coding and love learning new things.",
+                            biography,
                             style: TextStyle(
                                 color: Colors.white,
                                 decoration: TextDecoration.none,
