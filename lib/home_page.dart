@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   void updatePageViewOnButtonPress(int newPage) {
     controller.animateToPage(newPage,
-       duration: Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
+       duration: const Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
     //controller.jumpToPage(newPage);    
   }
 
