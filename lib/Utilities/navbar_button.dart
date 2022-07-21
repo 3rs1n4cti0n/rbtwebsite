@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rbtwebsite/Utilities/index_pages.dart';
-import 'package:rbtwebsite/HomePages/home_pages.dart';
 
 class NavigationButton extends StatefulWidget {
-  NavigationButton({
+  const NavigationButton({
     Key? key,
     required this.name, required this.index, required this.notifyParentOnIndexChange,
   }) : super(key: key);
